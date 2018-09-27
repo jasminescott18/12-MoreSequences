@@ -28,7 +28,7 @@ def main():
     # ------------------------------------------------------------------
 
     run_test_generate_points_on_circle()
-    # run_test_draw_points_on_circle()
+    run_test_draw_points_on_circle()
     # run_test_pizza()
     # run_test_polygon()
     # run_test_fancy_polygon()
@@ -69,14 +69,15 @@ def run_test_generate_points_on_circle():
     # ------------------------------------------------------------------
 
     # Test 2:
-    expected = [rg.Point(125.0, 50.0),  # All numbers are approximate.
-                rg.Point(112.5, 71.7),
-                rg.Point(87.5, 71.7)]
+    expected = [rg.Point(150.0, 100.0),  # All numbers are approximate.
+                rg.Point(75.0, 143.3),
+                rg.Point(75, 56.7)]
     circle = rg.Circle(rg.Point(100, 100), 50)
     answer = generate_points_on_circle(circle, 3)
 
     print('Expected:', expected)
     print('Actual:  ', answer)
+
 
 def generate_points_on_circle(circle_for_points, number_of_points_to_generate):
     """
@@ -147,7 +148,7 @@ def generate_points_on_circle(circle_for_points, number_of_points_to_generate):
 def run_test_draw_points_on_circle():
     """ Tests the   draw_points_on_circle   function. """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # COMPLETED: 3. Implement this TEST function.
     #   It TESTS the   draw_points_on_circle   function defined below.
     #   Include at least ** 1 ** ADDITIONAL test (that YOU write).
     #
@@ -185,6 +186,13 @@ def run_test_draw_points_on_circle():
     # Test 4:  (YOU write THIS test)
     # ------------------------------------------------------------------
 
+    # Test 1:
+    title = 'Beep Boop'
+    window = rg.RoseWindow(600, 600, title)
+    circle = rg.Circle(rg.Point(250, 100), 100)
+    draw_points_on_circle(window, circle, 5, 'pink')
+    window.close_on_mouse_click()
+
 
 def draw_points_on_circle(window, circle, number_of_points, color):
     """
@@ -221,8 +229,17 @@ def draw_points_on_circle(window, circle, number_of_points, color):
       :type number_of_points: int
       :type color:            str
     """
+    circle.attach_to(window)
+    sequence = generate_points_on_circle(circle, number_of_points)
+    for k in range(len(sequence)):
+        point = sequence[k]
+        circle1 = rg.Circle(point, 10)
+        circle1.fill_color = color
+        circle1.attach_to(window)
+        point.attach_to(window)
+    window.render()
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # COMPLETED: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPLEMENTATION REQUIREMENT:
