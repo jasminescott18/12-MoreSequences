@@ -31,7 +31,7 @@ def main():
     run_test_draw_points_on_circle()
     run_test_pizza()
     run_test_polygon()
-    # run_test_fancy_polygon()
+    run_test_fancy_polygon()
 
 
 def run_test_generate_points_on_circle():
@@ -401,6 +401,7 @@ def run_test_polygon():
 
     window.close_on_mouse_click()
 
+
 def polygon(window, circle, number_of_segments, color, thickness):
     """
     What comes in:
@@ -456,7 +457,7 @@ def polygon(window, circle, number_of_segments, color, thickness):
 def run_test_fancy_polygon():
     """ Tests the   fancy_polygon   function. """
     # ------------------------------------------------------------------
-    # TODO: 9. Implement this TEST function.
+    # COMPLETED: 9. Implement this TEST function.
     #   It TESTS the   fancy_polygon   function defined below.
     #   Include at least ** 1 ** ADDITIONAL test (that YOU write).
     #
@@ -501,6 +502,15 @@ def run_test_fancy_polygon():
     #   For all these, filling the circles with one color and using
     #   a contrasting color for the lines makes them especially pretty.
     # ------------------------------------------------------------------
+
+    # Test 3 (on another window):
+    title = 'FANCY POLYGON test 3:  20 lime green lines on blue circle, hops = 7.'
+    window = rg.RoseWindow(500, 500, title)
+
+    circle = rg.Circle(rg.Point(200, 165), 120)
+    circle.fill_color = 'blue'
+    fancy_polygon(window, circle, 20, 5, 'pink', 3)
+    window.close_on_mouse_click()
 
 
 def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color, thickness):
@@ -560,8 +570,20 @@ def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color, th
       :type color:           str
       :type thickness:       int
     """
+    circle.attach_to(window)
+    sequence = generate_points_on_circle(circle, number_of_lines)
+    for k in range(len(sequence)):
+        point = sequence[k]
+        point.attach_to(window)
+        location = sequence[k - hops_to_next_point]
+        lines = rg.Line(point, location)
+        lines.color = color
+        lines.thickness = thickness
+        lines.attach_to(window)
+    window.render()
+
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # COMPLETED: 10. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPLEMENTATION REQUIREMENT:
