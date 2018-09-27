@@ -6,8 +6,8 @@ This module lets you practice:
   -- CALLING functions
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jasmine Scott.
+"""  # COMPLETED: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import math
@@ -37,9 +37,9 @@ def main():
 def run_test_generate_points_on_circle():
     """ Tests the   generate_points_on_circle   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # T: 2. Implement this TEST function.
     #   It TESTS the  generate_points_on_circle  function defined below.
-    #   Include at least ** 1 ** ADDITIONAL test (that YOU write).
+    #   COMPLETED at least ** 1 ** ADDITIONAL test (that YOU write).
     #
     #   As usual, include both EXPECTED and ACTUAL results in your test
     #   and compute the latter BY HAND (not by running your program).
@@ -58,8 +58,8 @@ def run_test_generate_points_on_circle():
                 rg.Point(75.0, 50.0),
                 rg.Point(87.5, 28.3),
                 rg.Point(112.5, 28.3)]
-    circle = rg.Circle(rg.Point(100, 50), 25)
-    answer = generate_points_on_circle(circle, 6)
+    circle = rg.Circle(rg.Point(200, 200), 4)
+    answer = generate_points_on_circle(circle, 4)
 
     print('Expected:', expected)
     print('Actual:  ', answer)
@@ -68,6 +68,15 @@ def run_test_generate_points_on_circle():
     # Test 2:  (YOU write THIS test)
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected = [rg.Point(125.0, 50.0),  # All numbers are approximate.
+                rg.Point(112.5, 71.7),
+                rg.Point(87.5, 71.7)]
+    circle = rg.Circle(rg.Point(100, 100), 50)
+    answer = generate_points_on_circle(circle, 3)
+
+    print('Expected:', expected)
+    print('Actual:  ', answer)
 
 def generate_points_on_circle(circle_for_points, number_of_points_to_generate):
     """
