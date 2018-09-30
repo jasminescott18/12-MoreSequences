@@ -208,12 +208,14 @@ def make_less_simple_string(m, n):
     if m == n:
         return m
     else:
-        for k in range(z + 1):
-            sequence = sequence + str(m + k) + '-'
+        for k in range(1):
+            sequence = sequence + str(m + k)
+        for k in range(z):
+            sequence = sequence + '-' + str((m + 1) + k)
         return sequence
 
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # COMPLETED: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -----------------------------------------------------------------
 
@@ -414,10 +416,8 @@ def rectangles_from_circles(circles):
     """
 
     rectangles = []
-    rectangle = [circles]
     for k in range(len(circles) - 1):
-        sequence = rectangle[k]
-        rectangles = rectangles + sequence[k + 1]
+        rectangles = rectangles +
     return rectangles
 
     # ------------------------------------------------------------------
