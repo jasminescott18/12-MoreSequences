@@ -417,11 +417,11 @@ def rectangles_from_circles(circles):
 
     rectangles = []
     for k in range(len(circles)):
-        rectangles = rectangles 
+        rectangles = rectangles
     return rectangles
 
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # COMPLETED: 10. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
